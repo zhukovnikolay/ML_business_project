@@ -9,7 +9,6 @@ API: flask
 Задача: определение справедливой цены акции "Норильского Никеля" по переданному набору данных
 
 Используемые признаки:
-Date: datetime
 USD: float64       
 Commitments Long-Term: float64       
 Commitments Short-Term: float64       
@@ -34,7 +33,6 @@ $ docker build -t zhukovnikolay/ML_business_project.
 
 ### Запускаем контейнер
 
-Здесь Вам нужно создать каталог локально и сохранить туда предобученную модель (<your_local_path_to_pretrained_models> нужно заменить на полный путь к этому каталогу)
 ```
 $ docker run -d -p 8180:8180 zhukovnikolay/ML_business_project
 ```

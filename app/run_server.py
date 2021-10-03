@@ -26,8 +26,8 @@ def load_model(model_path):
 		model = dill.load(f)
 	print(model)
 
-
-modelpath = "/app/app/models/model.dill"
+modelpath = "/Users/nikolayzhukov/PycharmProjects/ML_business_project/app/models/model.dill"
+#modelpath = "/app/app/models/model.dill"
 load_model(modelpath)
 
 
@@ -48,11 +48,11 @@ def predict():
 		if request[field_name]:
 			return request[field_name]
 		else:
-			return ""
+			return 0
 
 	if flask.request.method == "POST":
 		request_json = flask.request.get_json()
-		dat = if_in_req(request_json, 'Date')
+		print(request_json)
 		usd = if_in_req(request_json, 'USD course')
 		com_long = if_in_req(request_json, 'Commitments Long-Term')
 		com_short = if_in_req(request_json, 'Commitments Short-Term')
@@ -66,12 +66,11 @@ def predict():
 		platinum = if_in_req(request_json, 'Platinum close price, USD')
 		mmvb = if_in_req(request_json, 'MMVB close')
 
-		logger.info(f'{dt} Date: Date={dat}, usd={usd}, com_long={com_long}, com_short={com_short}, earn={earn},'
+		logger.info(f'{dt} Date: usd={usd}, com_long={com_long}, com_short={com_short}, earn={earn},'
 					f'ebitda={ebitda}, cb_rate={cb_rate}, frs={frs_rate}, nickel={nickel}, copper={copper},'
 					f'palladium={palladium}, platinum={platinum}, mmvb={mmvb}')
 		try:
-			preds = model.predict(pd.DataFrame({'Date': [dat],
-												'USD course': [usd],
+			preds = model.predict(pd.DataFrame({'USD course': [usd],
 												'Commitments Long-Term': [com_long],
 												'Commitments Short-Term': [com_short],
 												'Earnings per share': [earn],
@@ -82,7 +81,7 @@ def predict():
 												'Copper close price, USD': [copper],
 												'Palladium close price, USD': [palladium],
 												'Platinum close price, USD': [platinum],
-												'MMVB close': [mmvb]}))
+												'MMVB close': [mmvb]}))[0]
 		except AttributeError as e:
 			logger.warning(f'{dt} Exception: {str(e)}')
 			data['predictions'] = str(e)
