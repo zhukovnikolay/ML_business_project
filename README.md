@@ -28,7 +28,7 @@ MMVB close: float64
 ```
 $ git clone https://github.com/zhukovnikolay/ML_business_project.git
 $ cd ML_business_project
-$ docker build -t zhukovnikolay/ml_business_project.
+$ docker build -t zhukovnikolay/ml_business_project .
 ```
 
 ### Запускаем контейнер
