@@ -26,8 +26,8 @@ def load_model(model_path):
 		model = dill.load(f)
 	print(model)
 
-modelpath = "/Users/nikolayzhukov/PycharmProjects/ML_business_project/app/models/model.dill"
-#modelpath = "/app/app/models/model.dill"
+#modelpath = "/Users/nikolayzhukov/PycharmProjects/ML_business_project/app/models/model.dill"
+modelpath = "/app/app/models/model.dill"
 load_model(modelpath)
 
 
