@@ -28,13 +28,13 @@ MMVB close: float64
 ```
 $ git clone https://github.com/zhukovnikolay/ML_business_project.git
 $ cd ML_business_project
-$ docker build -t zhukovnikolay/ML_business_project.
+$ docker build -t zhukovnikolay/ml_business_project.
 ```
 
 ### Запускаем контейнер
 
 ```
-$ docker run -d -p 8180:8180 zhukovnikolay/ML_business_project
+$ docker run -d -p 8180:8180 zhukovnikolay/ml_business_project
 ```
 
 ### Проверяем работу файлом predict_api_test.ipynb
