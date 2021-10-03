@@ -37,4 +37,4 @@ $ docker build -t zhukovnikolay/ml_business_project .
 $ docker run -d -p 8180:8180 zhukovnikolay/ml_business_project
 ```
 
-### Проверяем работу файлом predict_api_test.ipynb
+### Проверяем работу файлом predict_api_test.ipynb (необходимо предварительно скопировать его и файл test.xlsx на локальную машину)
